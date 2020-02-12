@@ -9,10 +9,12 @@ import java.util.List;
 public class Stack<T> {
     private int size;
     private int capacity;
-    // private T[] array;
     private List<T> list;
 
     public Stack(int capacity) {
+        if (capacity < 1) {
+            this.capacity = 5;
+        }
         this.capacity = capacity;
         list = new ArrayList<>();
     }
@@ -66,9 +68,8 @@ public class Stack<T> {
     }
 
     public void empty() {
-        //Tree possibilities
         // list.removeAll();
-        //list.clear();
+        list.clear();
         size = 0;
     }
 
@@ -78,5 +79,9 @@ public class Stack<T> {
 
     public int getCapacity() {
         return capacity;
+    }
+
+    public void show() {
+        System.out.println(list);
     }
 }
